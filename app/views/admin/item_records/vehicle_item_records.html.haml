@@ -1,0 +1,25 @@
+= render :partial => "admin/widgets/vehicle_tab_bar", :locals => { :current_tab => "items" }
+
+
+
+
+%table.table.table-stripped
+  %thead
+    %th 类型
+    %th 操作人
+    %th 数量
+    %th 单价
+    %th 车辆
+    %th 备注
+
+  - @item_records.each do |item_record|
+    %tr
+      %td= item_record.usage_type_in_word
+      %td= item_record.user.name
+      %td= item_record.num
+      %td= item_record.price
+      %td= item_record.vehicle.try(:paizhao)
+      %td= item_record.reason
+
+
+

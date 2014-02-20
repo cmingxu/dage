@@ -1,0 +1,2 @@
+- User.all.each do |u|
+  = link_to u.name, sign_as_path(:login => u.login)

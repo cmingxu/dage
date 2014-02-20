@@ -1,0 +1,14 @@
+default: &default
+  site_name: "佛山喷漆设备有限公司"
+  easy_login_enable: true
+
+
+development: 
+  <<: *default
+
+production: 
+  <<: *default
+  easy_login_enable: true
+
+test: 
+  <<: *default

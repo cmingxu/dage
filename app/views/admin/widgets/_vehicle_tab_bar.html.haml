@@ -1,0 +1,10 @@
+.tabbable.tabs
+  %ul.nav.nav-tabs
+    %li{"class" => current_tab == "reminds" ? "active" : ""}
+      = link_to icon_link(:heart) + " 车辆提醒", admin_vehicle_views_path
+    %li{"class" => current_tab == "in_balances" ? "active" : ""}
+      = link_to icon_link(:heart) + " 收入", vehicle_in_balances_admin_in_balances_path(:paizhao => @vehicle.paizhao)
+    %li{"class" => current_tab == "balances" ? "active" : ""}
+      = link_to icon_link(:heart) + " 支出", vehicle_balances_admin_balances_path(:paizhao => @vehicle.paizhao)
+    %li{"class" => current_tab == "items" ? "active" : ""}
+      = link_to icon_link(:heart) + " 消耗", vehicle_item_records_admin_item_records_path(:paizhao => @vehicle.paizhao)

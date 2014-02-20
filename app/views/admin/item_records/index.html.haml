@@ -1,0 +1,34 @@
+%legend 
+  = @item.name
+  = "- 当前库存余数  #{@item.amount} "
+
+
+  %span.pull-right
+    = link_to icon_link(:plus) + "  入库", new_admin_item_item_record_path(@item, :usage_type => "item_in")
+    = link_to icon_link(:plus) + "  出库", new_admin_item_item_record_path(@item, :usage_type => "item_out")
+
+%table.table.table-stripped
+  %thead
+    %th 类型
+    %th 操作人
+    %th 数量
+    %th 单价
+    %th 车辆
+    %th 备注
+    %th
+
+  - @item_records.each do |item_record|
+    %tr
+      %td= item_record.usage_type_in_word
+      %td= item_record.user.name
+      %td= item_record.num
+      %td= item_record.price
+      %td= item_record.vehicle.try(:paizhao)
+      %td= item_record.reason
+      %td
+        = link_to icon_link(:search), edit_admin_item_item_record_path(@item, item_record)
+        = link_to icon_link(:trash), admin_item_item_record_path(@item, item_record), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+= paginate @item_records
+

@@ -1,0 +1,16 @@
+- if current_user.boss?
+- else
+  - if controller_name == "ship_outs"
+    - if !shipping.is_daishouhuokuan_fee_paid? and (shipping.daishouhuokuan_fee > 0) and shipping.is_daishouhuokuan_shouqu?
+      = link_to "放款", fangkuan_admin_ship_out_path(shipping), :method => :put, :class => "btn btn-warning"
+    = link_to icon_link(:print), print_admin_ship_out_path(shipping)
+    = link_to icon_link(:search), edit_admin_ship_out_path(shipping)
+  - elsif controller_name == "ship_ins"
+    - if shipping.reached?
+      = link_to "放件", deliver_admin_ship_in_path(shipping), :method => :put, :class => "btn btn-warning"
+    - if !shipping.is_paid?
+      = link_to "收物流费", pay_admin_ship_in_path(shipping), :method => :put, :class => "btn btn-warning"
+    - if shipping.daishouhuokuan_amount > 0 and !shipping.is_daishouhuokuan_shouqu?
+      = link_to "收货款", daishouhuokuan_admin_ship_in_path(shipping), :method => :put, :class => "btn btn-warning"
+  - elsif controller_name == "shippings"
+

@@ -1,0 +1,28 @@
+= form_for @hetong do |f|
+  - if @hetong.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@hetong.errors.count, "error")} prohibited this hetong from being saved:"
+      %ul
+        - @hetong.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :bianhao
+    = f.text_field :bianhao
+  .field
+    = f.label :client_name
+    = f.text_field :client_name
+  .field
+    = f.label :client_contact
+    = f.text_field :client_contact
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :end_time
+    = f.date_select :end_time
+  .field
+    = f.label :beizhu
+    = f.text_area :beizhu
+  .actions
+    = f.submit 'Save'

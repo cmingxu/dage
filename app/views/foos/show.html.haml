@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Foo:
+  = @foo.foo
+%p
+  %b Bar:
+  = @foo.bar
+
+= link_to 'Edit', edit_foo_path(@foo)
+\|
+= link_to 'Back', foos_path

@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Item:
+  = @item_record.item_id
+%p
+  %b User:
+  = @item_record.user_id
+%p
+  %b Num:
+  = @item_record.num
+%p
+  %b Usage type:
+  = @item_record.usage_type
+%p
+  %b Price:
+  = @item_record.price
+%p
+  %b Vehicle:
+  = @item_record.vehicle_id
+%p
+  %b Reason:
+  = @item_record.reason
+
+= link_to 'Edit', edit_item_record_path(@item_record)
+\|
+= link_to 'Back', item_records_path

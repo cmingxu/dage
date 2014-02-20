@@ -1,0 +1,25 @@
+%h1 Listing chukus
+
+%table
+  %tr
+    %th User
+    %th Quantity
+    %th Price
+    %th Hetong
+    %th
+    %th
+    %th
+
+  - @chukus.each do |chuku|
+    %tr
+      %td= chuku.user_id
+      %td= chuku.quantity
+      %td= chuku.price
+      %td= chuku.hetong_id
+      %td= link_to 'Show', chuku
+      %td= link_to 'Edit', edit_chuku_path(chuku)
+      %td= link_to 'Destroy', chuku, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Chuku', new_chuku_path

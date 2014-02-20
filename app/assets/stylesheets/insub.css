@@ -1,0 +1,158 @@
+/* -----------------------------------------------------------------------
+ Insub CSS Framework 0.9
+ http://insub.me
+   * Copyright (c) 2009.
+----------------------------------------------------------------------- */
+/*
+ *= require_self
+ *= require mylood
+ *= require nav
+ *= require slideshow
+*/
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, 
+dl, dt, dd, ul, ol, li, 
+pre, 
+fieldset, lengend, button, input, textarea, 
+th, td { margin: 0;padding: 0;}
+body,button, input, select, textarea { /* for ie */
+    
+    font: 12px/1 microsoft yahei,微软雅黑,Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; 
+}
+h1,h2,h3,h4, h5, h6 { font-size: 100%; }
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; }
+small { font-size: 12px; } 
+
+ul, ol { list-style: none; }
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+abbr[title], acronym[title] {border-bottom: 1px dotted;cursor: help;}
+q:before, q:after { content: ''; }
+
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: none; } 
+button, input, select, textarea {font-size: 100%; }
+table {border-collapse: collapse;border-spacing: 0;}
+hr {border: none;height: 1px;}
+html { overflow-y: scroll; }
+/* add my reset*/
+body{ line-height:1; } 
+label{vertialc-align:-3px; margin-left: 3px;}
+
+/* global set */
+body{
+	color: #666;
+	text-align:left;
+	line-height: 1.5;
+	background: #fff;
+}
+
+h1 {font-size:22px;}
+h2 {font-size:18px;}
+h3 {font-size:16px;}
+h4 {font-size:14px;}
+h5 {font-size:12px;}
+h6 {font-size:11px;}
+h1,h2,h3,h4,h5,h6{color: #666;}
+table, td, th {vertical-align:middle;}
+
+a {color: #666;}
+a:focus, a:hover {color: #C90809;}
+.red{color: #C90809;}
+a.red{color: #C90809;}
+a.red:link{color: #C90809;}
+.blue{color: #0066CC;}
+a.blue{color: #0066CC;}
+a.blue:link{color: #0066CC;}
+.gray{color: #999;}
+a.gray{color: #999;}
+a.gray:link{color: #999;}
+.orange{color: #ff9900;}
+a.orange{color: #ff9900;}
+a.orange:link{color: #ff9900;}
+
+.f12{font-size: 12px;}
+.f14{font-size: 14px;}
+.nobold{
+	font-weight: normal;
+}
+.cr{color: #c30;}
+.fl{float:left;}
+.fr{float:right;}
+.fn{float:none;}
+.al{text-align:left;}
+.ac{text-align:center;}
+.ar{text-align:right;}
+.clr{display:block;overflow:hidden;clear:both;height:0;line-height:0;font-size:0;}
+
+.no_padding{
+	padding: 0;
+}
+.t_orange{color: #ff6600;}
+.price_f{font-family: Helvetica,arial,sans-serif;color: #ff5500;}
+.notice,.message,.warning{float: left;margin-bottom: 10px;width: 100%;}
+.notice p,.message p,.warning p{margin: 5px 5px 5px 20px;}
+.notice {background-color: #ffffee;border: solid 1px #ffcc55; background-position: 0px -122px;}
+.clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+ * html .clearfix {height: 1%;} 
+.clearfix {display: block;} 
+/* End hide from IE-mac */
+.clear {clear:both;}
+.hide {display:none;}
+.show {display:block;}
+.normal{font-size: 12px;font-weight: normal;font-style: normal;}
+.small {font-size: 11px;}
+#overlay{
+	position: fixed;
+	z-index:100;
+	top: 0px;
+	left: 0px;
+	height:100%;
+	width:100%;
+	display: none;
+	background: #000;
+	filter:alpha(opacity=5);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+#modal_box{
+	background: #ccc;
+	border: solid 2px #000;
+	position: absolute;
+	margin: auto;
+}
+.formbtn{
+background:none repeat scroll 0 0 #ff6600;
+border-color:#ffb969 #dc5000 #dc5000 #ffb969;
+border-style:solid;
+border-width:2px;
+color:#FFFFFF;
+font-size: 14px;
+cursor:pointer;
+}
+input.formbtn {letter-spacing:0.1em;padding:4px 1em;}
+a.formbtn{padding:5px 12px;color: #fff;text-decoration: none;line-height: 28px;}
+input, textarea, select {font-family:inherit;font-size:inherit;font-weight:inherit;}
+.btn_box{float: left;width: 100%;text-align: right;margin: 10px 0;}
+
+
+#logo a, a.categories_link,#header_right, #search_submit, .fuckgfw_link
+{
+	background-image: url(../images/jumaimai_site.png);
+}
+
+.deal-share a, .notice,.invite_seller_icon,#pay_dialog .tit,#service_board_mailto
+{
+	background-image: url(../images/jumaimai_icon.png);
+	background-repeat: no-repeat;
+}
+
+#header_90690{float: left;margin: -3px 0 10px -3px;}
+
+tr.odd td{
+	background-color: #f7f7f7;
+}

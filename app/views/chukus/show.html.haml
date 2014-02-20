@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @chuku.user_id
+%p
+  %b Quantity:
+  = @chuku.quantity
+%p
+  %b Price:
+  = @chuku.price
+%p
+  %b Hetong:
+  = @chuku.hetong_id
+
+= link_to 'Edit', edit_chuku_path(@chuku)
+\|
+= link_to 'Back', chukus_path

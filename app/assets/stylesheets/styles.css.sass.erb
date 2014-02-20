@@ -1,0 +1,102 @@
+// Import all the variables into the main css file.
+@import "variables"
+
+// I gather this file is a starting point for the project.
+@import "bootstrap"
+
+@import "compass"
+
+// Include responsive Bootstrap styles
+// @import "bootstrap-responsive";
+
+#header
+  position: fixed
+  background-color: #476F9E
+  color: white
+  width: 100%
+  height: 90px
+  line-height: 130px
+  padding-right: 20px
+  padding-left: 20px
+  h1
+    float: left
+    +inline-block
+  ul.nav
+    +horizontal-list-container
+    > li
+      +horizontal-list-item
+
+
+#body
+  padding-top: 170px
+  background: url(<%= asset_path("background.png") %>) repeat
+
+#footer
+  min-height: 100px
+  background-color: #0F2658
+  color: white
+  text-align: center
+  padding-top: 10px
+
+legend a
+  font-size: 14px
+
+input[type="text"]
+  padding: 5px
+  margin-top: 5px
+  font-weight: bold
+  font-size: 18px
+  height: 30px
+  line-height: 30px
+
+.control-description
+  font-style: italic
+ 
+.control-label
+  font-size: 16px
+
+
+#search_form input[type="text"]
+  padding: 5px
+  margin-top: 5px
+  font-weight: bold
+  font-size: 18px
+  height: 20px
+  line-height: 20px
+
+table.report td
+  text-align: right
+
+
+table td.bold
+  font-weight: bold
+
+
+table td.center
+  text-align: center
+  vertical-align: middle
+
+#print_title
+  font-size: 24px
+  font-weight: bold
+  padding-bottom: 2px
+  padding-top: 2px
+  text-align: center
+
+.tr_hover
+  background-color: #ffc125
+
+.highlight
+  font-style: italic
+  color: red
+
+@media print
+  table
+    font-size: 12px
+  .table-bordered
+    border: 2px solid black
+  .table-bordered th, .table-bordered td 
+    border-left: 2px solid black
+
+  .table td
+    padding: 4px

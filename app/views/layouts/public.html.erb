@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <meta name="author" content="赤峰金刚辉腾物流" />
+  <meta name="copyright" content="Copyright (c) 2010-2010 jghtwl.com. All rights reserved." />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="utf-8" />
+  <meta name="keywords" content=<%= @metak || "赤峰金刚辉腾物流" %> />
+  <meta name="description" content=<%= @metad || "赤峰金刚辉腾物流 客运 物流" %> />
+
+  <title>赤峰金刚辉腾物流</title>
+  <%= stylesheet_link_tag 'insub.css', :media => 'screen, projection'%>
+  
+  <%= javascript_include_tag 'insub' %>
+  
+
+</head>
+<body>
+  <div id="header">
+    <div id="logo"><a href="/">&nbsp;</a></div>
+    <div id="header_right">
+      <img src="../images/free_tel.png" alt="赤峰金刚辉腾物流">
+    </div>
+
+    <div id="mynav">
+      <ul>
+        <li><a href="/"><span>首 页</span></a></li>
+        <li><a href="/welcome/routes"><span>客运线路</span></a></li>
+        <li><a href="/welcome/huoyun_routes"><span>物流网络</span></a></li>
+        <li><a href="/welcome/jobs"><span> 招聘职位 </span></a></li>
+        <li><a href="/welcome/about"><span>关于我们</span></a></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div id="content">
+    <%= yield :layout %>
+    <div class="clear"></div>
+  </div>
+  <div id="footer">
+    <div class="footer_left">
+    <div class="nav_footer">
+      <a href="/welcome/about">关于我们</a> |
+      <a href="/welcome/contact">联系我们</a> |
+           <a href="/welcome/news">公司新闻</a> |
+            <a href="/welcome/term">法律声明</a> |
+            <a href="/welcome/links">友情链接</a> |
+            <a href="/admin/dashboard">后台登陆</a>
+    </div>
+    <p class="copyright">赤峰金刚辉腾物流 版权所有 京ICP备10215661 &nbsp;&nbsp;&nbsp;&nbsp;© 2013-2016 jghtwl.com. All rights reserved.</p>
+    </div>
+    <div class="footer_right">
+      <p>提供专业的<span>海外网站推广</span>、<span>海外网站建设</span>、<span>海外营销策略</span>等</p>
+      <p>一站式<span>海外整合营销推广</span>方案</p>
+    </div>
+  </div>
+</body>
+</html>

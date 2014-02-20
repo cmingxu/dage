@@ -1,0 +1,60 @@
+#container
+
+%table.table.table-bordered.report
+  %thead
+    %td 车号
+    %td 收入
+    - Reason.out.each do |r|
+      %td= r.reason
+
+    %td 成本合计
+    %td 本月利润
+
+    - @balances.group_by{|b| b.paizhao }.each_pair do |paizhao, data|
+      %tr
+        %td= paizhao
+        - income = @in_balances.select{|b| b.paizhao == paizhao }.sum(&:amount)
+        %td= income
+        - Reason.out.each do |r|
+          %td= data.select{|b| b.reason == r.reason}.sum(&:amount)
+
+        %td= data.sum(&:amount)
+        %td= income - data.sum(&:amount)
+
+  
+
+
+
+:javascript
+  var categories = #{@balances.collect(&:paizhao).uniq.to_json}; 
+  var series = #{@series.to_json};
+  $(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: '客车成本核算'
+            },
+            xAxis: {
+              categories: categories
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '支出统计'
+                }
+            },
+            legend: {
+                backgroundColor: '#FFFFFF',
+                reversed: true
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+                series: series
+        });
+    });
+    

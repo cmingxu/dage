@@ -1,0 +1,19 @@
+%legend 
+  = "#{@item_record.usage_type_in_word}  #{@item.name} - #{@item.xinghao} (#{@item.amount})"
+
+= form_for [:admin, @item, @item_record] do |f|
+  = f.hidden_field :item_id
+  = f.hidden_field :user_id
+  = f.hidden_field :usage_type
+
+  = control_group_helper "数量", "必须数字，例如： 1", f.object.errors[:num].first do
+    = f.text_field :num, :class => "input-xxlarge"
+    = @item.unit
+
+  = control_group_helper "单价", "必须数字，例如： 1000",f.object.errors[:price].first do
+    = f.text_field :price, :class => "input-xxlarge"
+
+  = control_group_helper "备注", "", f.object.errors[:reason].first do
+    = f.text_area :reason, :class => "input-xxlarge"
+  .actions
+    = f.submit "提交", :class => "btn btn-primary"

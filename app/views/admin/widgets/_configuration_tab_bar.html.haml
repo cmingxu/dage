@@ -1,0 +1,4 @@
+.tabbable.tabs
+  %ul.nav.nav-tabs
+    %li{"class" => current_tab == "pages" ? "active" : ""}
+      = link_to icon_link(:heart) + " 页面管理", admin_pages_path

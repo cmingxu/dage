@@ -1,0 +1,26 @@
+.banner
+  %img{:src => "../images/banner/product-and-service.jpg", :alt => "赤峰金刚辉腾物流"}
+
+#crumb
+  您当前位置:
+  %a{:href => "/" } 首页
+  &nbsp;&nbsp; 客运线路
+
+%table.table.table-bordered.table-stripped.ectable_table
+  %thead
+    %th 始发站
+    %th 终点站
+    %th 随车电话
+    %th 发车时间
+    %th 到站时间
+    %th 车型
+    %th 途经站
+  - @routes.each do |route|
+    %tr
+      %td= route.start_location.name
+      %td= route.end_location.name
+      %td= route.mobile
+      %td= route.start_when
+      %td= route.end_when
+      %td= route.vehicle.leixing
+      %td= route.paths

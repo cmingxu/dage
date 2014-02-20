@@ -1,0 +1,26 @@
+= render :partial => "admin/widgets/configuration_tab_bar", :locals => { :current_tab => "pages" }
+
+%legend 
+  页面管理(
+  = @pages.count
+  )
+  %span.pull-right
+    = link_to icon_link(:plus) + "  新页面", new_admin_page_path
+
+%table.table.table-striped
+  %thead
+    %th 中文名称
+    %th URL
+    %th Title
+    %th
+
+  - @pages.each do |page|
+    %tr
+      %td= page.name
+      %td= page.slug
+      %td= page.title
+      %td
+        = link_to icon_link(:search), edit_admin_page_path(page)
+        
+
+

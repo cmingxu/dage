@@ -1,0 +1,13 @@
+%ul.nav.nav-tabs.nav-stacked
+  %li.dashboard
+    = link_to icon_link(:heart) + " 首页", admin_dashboard_path
+  - if current_user.boss?
+    %li.items
+      = link_to icon_link(:heart) + " 库存管理", admin_items_path
+    %li.configurations
+      = link_to icon_link(:heart) + " 配置管理", admin_configuration_path
+    %li.users
+      = link_to icon_link(:heart) + " 账号管理", admin_users_path
+
+
+

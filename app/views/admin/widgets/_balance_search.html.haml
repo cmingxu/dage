@@ -1,0 +1,31 @@
+= form_tag path, :class => "form form-horizontal well", :method => :get  do
+  - if current_user.boss?
+    = search_control_group_helper("地点") do
+      = select_tag "search[location]", options_from_collection_for_select(Location.all, "name", "name", params["search"].fetch('location', "")), :include_blank => true
+    = search_control_group_helper("车牌照") do
+      = select_tag "search[route]", options_from_collection_for_select(Route.all, "paizhao", "paizhao", params["search"].fetch("route", "")), :include_blank => true
+  - else
+    = search_control_group_helper("车牌照") do
+      = select_tag "search[route]", options_from_collection_for_select(current_user.locations.collect(&:routes).flatten, "paizhao", "paizhao", params["search"].fetch("route", "")), :include_blank => true
+
+
+  #search_form.hide
+    = search_control_group_helper("原因") do
+      = select_tag "search[reason]", options_from_collection_for_select(reasons, "reason", "reason", params["search"].fetch('reason', "")), :include_blank => true
+
+    = search_control_group_helper("金额") do
+      = text_field_tag "search[amount_start]", (params["search"].fetch("amount_start", 0)), :class => "input-small"
+      = text_field_tag "search[amount_end]", (params["search"].fetch("amount_end", 10000000)), :class => "input-small"
+
+
+    = search_control_group_helper("时间") do
+      = text_field_tag "search[start_at]", (params["search"].fetch("start_at", "2012-01-01")), :class => "input-small date"
+      = text_field_tag "search[end_at]", (params["search"].fetch("end_at", "2020-01-01")), :class => "input-small date"
+
+  %hr
+  .actions{:style => "text-align:center"}
+    =  submit_tag "搜索", :class => "btn btn-primary"
+
+  #search_form_swicher{:style => "text-align:right; margin-top: -20px"}
+    = link_to icon_link("arrow-down"), "javascript:slidedown();", :id => "up"
+    = link_to icon_link("arrow-up"), "javascript:slideup();", :id => "down", :class => "hide"

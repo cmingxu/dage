@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Bianhao:
+  = @hetong.bianhao
+%p
+  %b Client name:
+  = @hetong.client_name
+%p
+  %b Client contact:
+  = @hetong.client_contact
+%p
+  %b Price:
+  = @hetong.price
+%p
+  %b End time:
+  = @hetong.end_time
+%p
+  %b Beizhu:
+  = @hetong.beizhu
+
+= link_to 'Edit', edit_hetong_path(@hetong)
+\|
+= link_to 'Back', hetongs_path

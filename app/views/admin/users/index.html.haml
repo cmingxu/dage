@@ -1,0 +1,32 @@
+= render :partial => "admin/widgets/configuration_tab_bar", :locals => { :current_tab => "users" }
+
+%legend 
+  用户列表(
+  = @users.count
+  )
+  %span.pull-right
+    = link_to icon_link(:plus) + "  新用户", new_admin_user_path
+
+%table.table.table-striped
+  %thead
+    %th 登陆名
+    %th 姓名
+    %th 联系方式
+    %th 身份
+    %th 最后登录时间
+    %th
+
+  - @users.each do |user|
+    %tr
+      %td= user.login
+      %td= user.name
+      %td= user.mobile
+      %td= user.roles_in_words
+      %td= time_ago_in_words_zh(user.last_sign_in_at || 1.years.ago) + "前"
+      %td
+        = link_to icon_link(:search), edit_admin_user_path(user)
+        = link_to icon_link(:wrench), change_path(:id => user.id)
+        =# link_to icon_link(:trash), admin_user_path(user), :confirm => "此操作会删除地点， 确认继续？", :method => :delete
+        
+
+

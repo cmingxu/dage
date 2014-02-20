@@ -1,0 +1,18 @@
+= render :partial => "admin/widgets/configuration_tab_bar", :locals => { :current_tab => "pages" }
+
+= form_for [:admin, @page], :class => "form form-horizontal" do |f|
+  = control_group_helper "页面名称", "例如： 关于我们", f.object.errors[:name].first do
+    = f.text_field :name, :class => "input-xxlarge"
+
+  = control_group_helper "页面URL", "例如： about", f.object.errors[:slug].first do
+    = f.text_field :slug, :class => "input-xxlarge"
+
+  = control_group_helper "页面Title", "例如： 赤峰金刚辉腾物流", f.object.errors[:title].first do
+    = f.text_field :title, :class => "input-xxlarge"
+
+  = control_group_helper "文章内容", "例如", f.object.errors[:content].first do
+    = f.kindeditor :content
+
+  .actions
+    = f.submit '保存', :class => "btn btn-primary"
+

@@ -1,0 +1,27 @@
+= render :partial => "admin/widgets/configuration_tab_bar", :locals => { :current_tab => "locations" }
+
+%legend 
+  地点列表
+  %span.pull-right
+    -#= link_to icon_link(:plus) + "  新地点", new_admin_location_path
+
+-#%table.table.table-striped
+  -#%thead
+    -#%th 名称
+    -#%th 负责人
+    -#%th 联系电话
+    -#%th 联系地址
+    -#%th
+
+  -#- @locations.each do |location|
+    -#%tr
+      -#%td= location.name
+      -#%td= location.fuzeren
+      -#%td= location.user.try(:mobile)
+      -#%td= location.fuzeren_address
+      -#%td
+        -#= link_to icon_link(:search), edit_admin_location_path(location)
+        -#= link_to icon_link(:trash), admin_location_path(location), :confirm => "此操作会删除地点， 确认继续？", :method => :delete
+        
+
+

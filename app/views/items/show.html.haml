@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @item.name
+%p
+  %b Xinghao:
+  = @item.xinghao
+%p
+  %b Danjia:
+  = @item.danjia
+%p
+  %b Tuzhi:
+  = @item.tuzhi
+%p
+  %b Danwei:
+  = @item.danwei
+%p
+  %b Quantity:
+  = @item.quantity
+%p
+  %b User:
+  = @item.user_id
+
+= link_to 'Edit', edit_item_path(@item)
+\|
+= link_to 'Back', items_path

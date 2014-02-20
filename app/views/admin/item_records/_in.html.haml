@@ -1,0 +1,15 @@
+%legend 
+  = "#{@item_record.usage_type_in_word}  #{@item.name} - #{@item.xinghao} (#{@item.amount})"
+
+= form_for [:admin, @item, @item_record] do |f|
+  = f.hidden_field :item_id
+  = f.hidden_field :user_id
+  = f.hidden_field :usage_type
+  = control_group_helper "车号", "选择一个车牌照，例如： 蒙D33875", f.object.errors[:vehicle_id].first do
+    = f.select :vehicle_id, options_from_collection_for_select(Vehicle.all, "id", "paizhao", @item_record.vehicle_id)
+  = control_group_helper "数量", "必须数字，例如： 1", f.object.errors[:num].first do
+    = f.text_field :num, :class => "input-xxlarge"
+  = control_group_helper "备注", "", f.object.errors[:reason].first do
+    = f.text_area :reason, :class => "input-xxlarge"
+  .actions
+    = f.submit "提交", :class => "btn btn-primary"

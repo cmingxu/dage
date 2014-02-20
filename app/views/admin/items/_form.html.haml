@@ -1,0 +1,13 @@
+= form_for [:admin, @item], :form => "form form-horizontal" do |f|
+  = control_group_helper "物品", "例如： 机油", f.object.errors[:name].first do
+    = f.text_field :name, :class => "input-xxlarge"
+  = control_group_helper "型号", "例如： 0001", f.object.errors[:xinghao].first do
+    = f.text_field :xinghao, :class => "input-xxlarge"
+  = control_group_helper "数量", "例如： 3", f.object.errors[:amount].first do
+    = f.text_field :amount, :class => "input-xxlarge"
+  = control_group_helper "单位", "例如： 桶， 件", f.object.errors[:unit].first do
+    = f.select :unit, options_for_select(Item::UNITS, @item.unit)
+
+  .actions
+    = f.submit '入库', :class => "btn btn-primary"
+    = link_to "返回", admin_items_path, :class => "btn"

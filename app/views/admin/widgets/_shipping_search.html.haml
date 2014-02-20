@@ -1,0 +1,32 @@
+= form_tag path, :class => "form form-horizontal well", :method => :get  do
+  - if current_user.boss?
+    = search_control_group_helper("发货站") do
+      = select_tag "search[from]", options_from_collection_for_select(Huozhan.all, "huozhan_name", "huozhan_name", params["search"].fetch('from', "")), :include_blank => true
+  - else
+    = search_control_group_helper("收货站") do
+      = select_tag "search[to]", options_from_collection_for_select(Huozhan.all, "huozhan_name", "huozhan_name", params["search"].fetch("to", "")), :include_blank => true
+    = search_control_group_helper("货物状态") do
+      = select_tag "search[status]", options_for_select(Shipping::STATUS, params["search"].fetch("status", "")), :include_blank => true
+
+  #search_form.hide
+    = search_control_group_helper("收货人") do
+      = text_field_tag "search[receiver_name]", (params["search"].fetch("receiver_name", "")), :class => "input-large"
+    = search_control_group_helper("发货人") do
+      = text_field_tag "search[sender_name]", (params["search"].fetch("sender_name", "")), :class => "input-large"
+    = search_control_group_helper("收货人电话") do
+      = text_field_tag "search[receiver_tel]", (params["search"].fetch("receiver_tel", "")), :class => "input-large"
+    = search_control_group_helper("发货人电话") do
+      = text_field_tag "search[sender_tel]", (params["search"].fetch("sender_tel", "")), :class => "input-large"
+
+    = search_control_group_helper("时间") do
+      = text_field_tag "search[start_at]", (params["search"].fetch("start_at", "2012-01-01")), :class => "input-small date"
+      = text_field_tag "search[end_at]", (params["search"].fetch("end_at", "2020-01-01")), :class => "input-small date"
+
+  %hr
+  .actions{:style => "text-align:center"}
+    =  submit_tag "搜索", :class => "btn btn-primary"
+
+  #search_form_swicher{:style => "text-align:right; margin-top: -20px"}
+    = link_to icon_link("arrow-down"), "javascript:slidedown();", :id => "up"
+    = link_to icon_link("arrow-up"), "javascript:slideup();", :id => "down", :class => "hide"
+

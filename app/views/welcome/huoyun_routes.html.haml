@@ -1,0 +1,20 @@
+.banner
+  %img{:src => "../images/banner/product-and-service.jpg", :alt => "赤峰金刚辉腾物流"}
+
+#crumb
+  您当前位置:
+  %a{:href => "/" } 首页
+  &nbsp;&nbsp; 货运线路
+
+%table.table.table-bordered.table-stripped.ectable_table
+  %thead{:style => "height: 37px; line-height: 37px;"}
+    %th 始发站
+    %th 终点站
+    %th 货站地址
+    %th 货站电话
+  - @huoyun_routes.each do |route|
+    %tr
+      %td= route.from_huozhan.huozhan_name
+      %td= route.to_huozhan.huozhan_name
+      %td= route.from_huozhan.huozhan_address
+      %td= route.from_huozhan.huozhan_tel

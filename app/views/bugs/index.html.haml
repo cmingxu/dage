@@ -1,0 +1,10 @@
+
+%table.table.table-stripped
+  %thead
+    %th 问题
+    %th
+
+  - @bugs.each do |bug|
+    %tr
+      %td= bug.desc
+

@@ -1,0 +1,5 @@
+= form_for @bug, :class => "form form-horizontal"  do |f|
+  = control_group_helper "问题或建议", "", f.object.errors[:desc].first do
+    = f.text_area :desc
+  .actions
+    = f.submit '保存', :class => "btn btn-primary"

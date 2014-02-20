@@ -1,0 +1,70 @@
+!!! 5
+%html
+  %head
+    %title= Setting.site_name
+    = stylesheet_link_tag "application", :media => "all" 
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    .container
+      .navbar#navbar
+        .navbar-inner
+          %a.brand 赤峰金刚辉腾物流
+          .nav-collapse.collapse
+            %ul.nav
+              %li
+                = link_to "客运线路", "/routes"
+              %li
+                = link_to "物流网络", "/huoyun_routes"
+              %li
+                = link_to "联系我们", "/contact"
+              %li
+                = link_to "招贤纳士", "/jobs"
+              %li
+                = link_to "关于我们", "/about"
+
+    .container
+      #myCarousel.carousel.slide
+        .carousel-inner
+          .item.active
+            %img{:src => "#{asset_path('slide-01.jpg')}"}
+            .carousel-caption
+              %h1 Example Headling
+              %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+
+          .item
+            %img{:src => "#{asset_path('slide-02.jpg')}"}
+            .carousel-caption
+              %h1 Example Headling
+              %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+
+          .item
+            %img{:src => "#{asset_path('slide-03.jpg')}"}
+            .carousel-caption
+              %h1 Example Headling
+              %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+
+          %a.left.carousel-control{:href=>"#myCarousel", "data-slide" => "prev"} &lsaquo;
+          %a.right.carousel-control{:href=>"#myCarousel", "data-slide" => "next"} &rsaquo;
+    .container
+      = yield
+    
+    #footer.footer
+      %p
+        = Setting.site_name
+        @2013
+      %p 
+        由cming.xu@gmail.com制作
+      %p 
+        = link_to "后台登陆", new_user_session_path
+
+:javascript
+  $(document).ready(function(){
+    if(!navigator.userAgent.match(/chrome/i)){
+      var user_agent_suggestion = "<div class='alert alert-info'>为了达到更好的显示效果， 推荐您使用"
+        + "<a href='http://www.google.cn/intl/zh-CN/chrome/browser/?installdataindex=chinabookmarkcontrol&brand=CHUN' class='label' target='_blank'>Chrome浏览器</a></div>";
+        $("#user_agent_warnning").html(user_agent_suggestion);
+      }
+      });
+

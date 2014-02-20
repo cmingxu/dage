@@ -1,0 +1,2 @@
+module HetongsHelper
+end
