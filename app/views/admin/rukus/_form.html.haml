@@ -6,6 +6,9 @@
   = control_group_helper "数量", "例如： 3", f.object.errors[:quantity].try(:first) do
     = f.text_field :quantity, :class => "input-xxlarge"
 
+  = control_group_helper "单价", "例如： 3", f.object.errors[:price].try(:first) do
+    = f.text_field :price, :class => "input-xxlarge"
+
   = control_group_helper "供应商", "例如： 山东xx轴承", f.object.errors[:supplier].try(:first) do
     = f.text_field :supplier, :class => "input-xxlarge typeaheadSupplier"
 

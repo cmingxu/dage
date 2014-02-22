@@ -1,7 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Ruku < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :item_id, :name, :quantity, :user_id, :xinghao, :supplier, :name_param
+  belongs_to :item
+  attr_accessible :item_id, :name, :quantity, :user_id, :xinghao, :supplier, :name_param, :price
   attr_accessor :name_param
 
 
@@ -10,6 +11,10 @@ class Ruku < ActiveRecord::Base
   validates :quantity, :numericality => {:message => "入库数量为整数"}
   validate :name_xinghao_exist
 
+  after_create do
+    self.item.update_attribute(:quantity, self.item.quantity + self.quantity.to_i)
+  end
+
   def name_xinghao_exist
      self.errors.add(:name_param, "物品不存在， 先再库存中添加物品") unless Item.exists?(["name = ? AND xinghao = ?", self.name, self.xinghao])
   end
@@ -17,6 +22,7 @@ class Ruku < ActiveRecord::Base
   def name_param=(what)
     self.name = what.split("-")[0]
     self.xinghao = what.split("-")[1]
+    self.item_id = Item.find_by_name_and_xinghao(self.name, self.xinghao).try(:id)
   end
 
   def name_param

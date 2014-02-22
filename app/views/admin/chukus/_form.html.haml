@@ -1,16 +1,16 @@
 = form_for [:admin, @chuku], :class => "form form-horizontal" do |f|
 
   = f.hidden_field :user_id
-  = control_group_helper "部件名称", "例如： 机油", "" do
-    = text_field_tag "name", "", :class => "input-xxlarge typeaheadName"
+  = control_group_helper "部件名称", "例如： 机油", f.object.errors[:name_param].try(:first) do
+    = f.text_field "name_param", :class => "input-xxlarge typeaheadName"
 
-  = control_group_helper "合同", "例如： 山东XX项目-HT0101", "" do
-    = text_field_tag "hetong", "", :class => "input-xxlarge typeaheadHetong"
+  = control_group_helper "合同", "例如： 山东XX项目-HT0101", f.object.errors[:hetong_param].try(:first) do
+    = f.text_field "hetong_param", :class => "input-xxlarge typeaheadHetong"
 
-  = control_group_helper "数量", "例如： 3", "" do
+  = control_group_helper "数量", "例如： 3", f.object.errors[:quantity].try(:first) do
     = f.text_field :quantity, :class => "input-xxlarge"
 
-  = control_group_helper "价格", "例如： 100", "" do
+  = control_group_helper "价格", "例如： 100", f.object.errors[:price].try(:first) do
     = f.text_field :price, :class => "input-xxlarge"
 
   .actions

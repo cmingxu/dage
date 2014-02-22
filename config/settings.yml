@@ -1,5 +1,5 @@
 default: &default
-  site_name: "佛山喷漆设备有限公司"
+  site_name: "佛山沃顿"
   easy_login_enable: true
 
 

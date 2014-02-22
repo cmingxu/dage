@@ -4,7 +4,7 @@ class CreateChukus < ActiveRecord::Migration
     create_table :chukus do |t|
       t.integer :user_id
       t.string :quantity
-      t.string :price
+      t.float :price
       t.integer :hetong_id
 
       t.timestamps

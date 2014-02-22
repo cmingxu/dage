@@ -1,22 +1,21 @@
-%h1 Listing chukus
-
-%table
-  %tr
-    %th User
-    %th Quantity
-    %th Price
-    %th Hetong
-    %th
-    %th
-    %th
+%table.table.table-stripped
+  %thead
+    %th 部件名称
+    %th 原材料及规格
+    %th 数量
+    %th 单价
+    %th 合同号
+    %th 时间
+    %th 经手人
 
   - @chukus.each do |chuku|
     %tr
-      %td= chuku.user_id
+      %td= chuku.item_name
+      %td= chuku.item_xinghao
       %td= chuku.quantity
       %td= chuku.price
-      %td= chuku.hetong_id
-      %td= link_to 'Show', chuku
-      %td= link_to 'Edit', edit_chuku_path(chuku)
-      %td= link_to 'Destroy', chuku, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= chuku.hetong.try(:bianhao)
+      %td= chuku.created_at
+      %td= chuku.user.try(:name)
 
+= paginate @chukus
