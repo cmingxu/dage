@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateHetongs < ActiveRecord::Migration
   def change
     create_table :hetongs do |t|

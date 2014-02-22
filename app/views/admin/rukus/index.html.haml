@@ -1,0 +1,19 @@
+%table.table.table-stripped
+  %thead
+    %th 部件名称
+    %th 原材料及规格
+    %th 数量
+    %th 供应商
+    %th 经手人
+    %th 时间
+
+  - @rukus.each do |ruku|
+    %tr
+      %td= ruku.name
+      %td= ruku.xinghao
+      %td= ruku.quantity
+      %td= ruku.supplier
+      %td= ruku.user.try(:name)
+      %td= ruku.created_at
+
+= paginate @rukus

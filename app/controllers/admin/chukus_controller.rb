@@ -1,8 +1,9 @@
-class ChukusController < ApplicationController
+# -*- encoding : utf-8 -*-
+class Admin::ChukusController < Admin::BaseController
   # GET /chukus
   # GET /chukus.json
   def index
-    @chukus = Chuku.all
+    @chukus = Chuku.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +45,7 @@ class ChukusController < ApplicationController
 
     respond_to do |format|
       if @chuku.save
-        format.html { redirect_to @chuku, notice: 'Chuku was successfully created.' }
+        format.html { redirect_to admin_chukus_path, notice: 'Chuku was successfully created.' }
         format.json { render json: @chuku, status: :created, location: @chuku }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class ChukusController < ApplicationController
 
     respond_to do |format|
       if @chuku.update_attributes(params[:chuku])
-        format.html { redirect_to @chuku, notice: 'Chuku was successfully updated.' }
+        format.html { redirect_to admin_chukus_path, notice: 'Chuku was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +77,7 @@ class ChukusController < ApplicationController
     @chuku.destroy
 
     respond_to do |format|
-      format.html { redirect_to chukus_url }
+      format.html { redirect_to admin_chukus_url }
       format.json { head :no_content }
     end
   end

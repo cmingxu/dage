@@ -1,0 +1,32 @@
+%legend 
+  合同(
+  = Hetong.count
+  )
+
+  %span.pull-right
+    = link_to icon_link(:plus) + "  添加合同", new_admin_hetong_path
+
+%table.table.table-stripped
+  %thead
+    %th 编号
+    %th 名称
+    %th 客户名称
+    %th 结束时间
+    %th 价格
+    %th 备品价格
+    %th
+
+  - @hetongs.each do |hetong|
+    %tr
+      %td= hetong.bianhao
+      %td= hetong.name
+      %td= hetong.client_name
+      %td= hetong.client_contact
+      %td= hetong.end_time
+      %td= hetong.price
+      %td
+        = link_to icon_link(:search), edit_admin_hetong_path(hetong)
+        = link_to icon_link("th-list"), admin_hetong_chukus_path(hetong)
+        = link_to icon_link(:trash), admin_hetong_path(hetong), :confirm => "此操作会删除物品,， 确认继续？", :method => :delete
+
+= paginate @hetongs

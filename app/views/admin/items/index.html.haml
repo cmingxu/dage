@@ -1,6 +1,14 @@
 %legend 
-  库存(
+  种类数(
   = Item.count
+  )
+
+  总件数(
+  = Item.sum "quantity"
+  )
+
+  总金额(
+  = Item.sum("quantity * danjia")
   )
 
   %span.pull-right
@@ -8,21 +16,27 @@
 
 %table.table.table-stripped
   %thead
-    %th 物品
-    %th 型号
-    %th 库内数量
-    %th
-    %th
+    %th 部件名称
+    %th 原材料及规格
+    %th 图纸编号
+    %th 单位
+    %th 单价(元)
+    %th 库存数
+    %th 金额
+    %td
 
   - @items.each do |item|
     %tr
       %td= item.name
       %td= item.xinghao
-      %td= item.amount
+      %td= item.tuzhi
+      %td= item.danwei
+      %td= item.danjia
+      %td= item.quantity
       %td
-        = link_to icon_link("arrow-up"),  new_admin_item_item_record_path(item, :usage_type => "item_in")
-        = link_to icon_link("arrow-down"),  new_admin_item_item_record_path(item, :usage_type => "item_out")
-        = link_to icon_link("th-list"), admin_item_item_records_path(item)
+        = link_to icon_link("arrow-up"),  new_admin_item_ruku_path(item)
+        = link_to icon_link("arrow-down"),  new_admin_item_chuku_path(item)
+        = link_to icon_link("th-list"), admin_item_chukus_path(item)
         = link_to icon_link(:search), edit_admin_item_path(item)
         = link_to icon_link(:trash), admin_item_path(item), :confirm => "此操作会删除物品,， 确认继续？", :method => :delete
 

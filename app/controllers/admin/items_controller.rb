@@ -2,6 +2,15 @@
 class Admin::ItemsController < Admin::BaseController
   # GET /items
   # GET /items.json
+  def search
+    @items = Item.where(["name like ? or xinghao like ?", "%#{params[:query]}%", "%#{params[:query]}%"]).limit(8)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json  { render :json => @items }
+    end
+  end
+
   def index
     @items = Item.page params[:page]
 

@@ -21,6 +21,7 @@
 //= require highcharts/modules/funnel
 //= require jquery.ui.datepicker
 //= require bootstrap-carousel
+//= require bootstrap-typeahead
 //= require_self
 //
 

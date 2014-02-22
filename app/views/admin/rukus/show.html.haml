@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @ruku.user_id
+%p
+  %b Quantity:
+  = @ruku.quantity
+%p
+  %b Name:
+  = @ruku.name
+%p
+  %b Xinghao:
+  = @ruku.xinghao
+%p
+  %b Item:
+  = @ruku.item_id
+
+= link_to 'Edit', edit_ruku_path(@ruku)
+\|
+= link_to 'Back', rukus_path

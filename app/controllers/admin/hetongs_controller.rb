@@ -1,8 +1,19 @@
-class HetongsController < ApplicationController
+# -*- encoding : utf-8 -*-
+class Admin::HetongsController < Admin::BaseController
   # GET /hetongs
   # GET /hetongs.json
+
+  def search
+    @hetongs = Hetong.where(["name like ? or bianhao like ? or client_name like ?", "%#{params[:query]}%", "%#{params[:query]}%","%#{params[:query]}%"]).limit(8)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json  { render :json => @hetongs }
+    end
+  end
+
   def index
-    @hetongs = Hetong.all
+    @hetongs = Hetong.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +55,7 @@ class HetongsController < ApplicationController
 
     respond_to do |format|
       if @hetong.save
-        format.html { redirect_to @hetong, notice: 'Hetong was successfully created.' }
+        format.html { redirect_to admin_hetongs_path, notice: 'Hetong was successfully created.' }
         format.json { render json: @hetong, status: :created, location: @hetong }
       else
         format.html { render action: "new" }
@@ -60,7 +71,7 @@ class HetongsController < ApplicationController
 
     respond_to do |format|
       if @hetong.update_attributes(params[:hetong])
-        format.html { redirect_to @hetong, notice: 'Hetong was successfully updated.' }
+        format.html { redirect_to admin_hetongs_path, notice: 'Hetong was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +87,7 @@ class HetongsController < ApplicationController
     @hetong.destroy
 
     respond_to do |format|
-      format.html { redirect_to hetongs_url }
+      format.html { redirect_to admin_hetongs_url }
       format.json { head :no_content }
     end
   end
