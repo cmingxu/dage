@@ -6,17 +6,15 @@ group :production do
   gem 'mysql2', '0.3.11'
 end
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'compass-rails'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails', '2.2.6'
-  gem 'font-awesome-rails'
-  gem 'bootstrap-wysihtml5-rails'
-  gem 'bootstrap-sass', '<= 2.3.2.0'
-  gem "highcharts-rails", "~> 3.0.5"
-end
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
+gem 'compass-rails'
+gem 'uglifier', '>= 1.0.3'
+gem 'twitter-bootstrap-rails', '2.2.6'
+gem 'font-awesome-rails'
+gem 'bootstrap-wysihtml5-rails'
+gem 'bootstrap-sass', '<= 2.3.2.0'
+gem "highcharts-rails", "~> 3.0.5"
 
 gem 'rails_kindeditor'
 gem 'haml-rails'
