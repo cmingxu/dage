@@ -45,5 +45,6 @@ group :development, :test do
 end
 
 gem 'disqus'
+gem 'unicorn'
 gem 'state_machine'
 
